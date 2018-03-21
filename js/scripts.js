@@ -1,3 +1,4 @@
+//Back-end
 var add = function(number1, number2) {
   return number1 + number2;
 };
@@ -15,9 +16,15 @@ var divide = function(number1, number2) {
   return number1 / number2;
 };
 
-var number1 = parseInt(prompt("Enter a number:"));
-var number2 = parseInt(prompt("Enter another number:"));
+//front-end
+$(function() {
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#add1").val());
+    var number2 = parseInt($("#add2").val());
 
-var result = divide(number1, number2);
+    var result = add(number1, number2);
+    $(".result").text(number1 + "+" + number2 + "=" + result);
 
-alert(result);
+  });
+});
